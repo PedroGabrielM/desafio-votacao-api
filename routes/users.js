@@ -1,27 +1,18 @@
 const express = require('express');
 const router = express.Router();
+const postgres = require('../postgres').pool;
 
-//Retorna todos os usuários
-router.get('/', (req, res) => {
-    return res.json({
-        message: 'ok'
-    });
-});
-
-//Insere um usuário
-router.post('/', (req, res) => {
-    return res.json({
-        message: 'ok'
-    });
-});
-
-//Retorna dados do usuario
-router.get('/:id_users', (req, res, next) => {
-   const id = req.params.id_users
-   
-   return res.json({
-    message: 'ok'
-});
+router.get('/', (req, res, next) => {
+    postgres.getConnection((error, conn) => {
+        if (error) { return res.status(500).send({ error: error }) }
+        conn.query(
+            'SELECT * FROM users;',
+            (error, result, field) => {
+                if (error) { return res.status(500).send({ error: error }) }
+                return res.status(200).send({response: result})
+            }
+        )
+    })
 });
 
 module.exports = router;

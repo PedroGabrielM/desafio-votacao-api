@@ -1,15 +1,13 @@
 const express = require('express');
 const app = express();
-const morgan = require('morgan');
 
 const rotaUsers = require('./routes/users');
-const rotaVotes = require('./routes/votes');
+const rotaOptions = require('./routes/options');
 
-app.use(morgan('dev'));
 app.use('/users', rotaUsers);
-app.use('/votes', rotaVotes);
+app.use('/options', rotaOptions);
 
-app.use((req, res, next) => {
+app.use((req, res) => {
     return res.status(200).send({
         message: 'ok'
     });

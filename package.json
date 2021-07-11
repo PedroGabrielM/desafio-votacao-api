@@ -2,7 +2,7 @@
   "name": "votacao-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "nodemon server.js"
   },
@@ -18,7 +18,9 @@
   "homepage": "https://github.com/PedroGabrielM/desafio-votacao-app#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "morgan": "^1.10.0"
+    "knex": "^0.95.7",
+    "morgan": "^1.10.0",
+    "pg": "^8.6.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
