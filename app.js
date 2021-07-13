@@ -8,9 +8,10 @@ app.use('/users', rotaUsers);
 app.use('/options', rotaOptions);
 
 app.use((req, res) => {
-    return res.status(200).send({
-        message: 'ok'
-    });
+    return res.jsonres.status(200).send({
+      message: 'App',
+      message: 'Test'
+  });
 });
 
 module.exports = app;
